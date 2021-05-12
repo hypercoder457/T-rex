@@ -2,7 +2,7 @@ var PLAY = 1;
 var END = 0;
 var gameState = PLAY;
 
-var trex, trex_running, trex_collided;
+var trex, trexRunning, trexCollided;
 var ground, invisibleGround, groundImage;
 
 var cloudsGroup, cloudImage;
@@ -13,8 +13,8 @@ var score = 0;
 var gameOver, restart;
 
 function preload() {
-  trex_running = loadAnimation("trex1.png", "trex3.png", "trex4.png");
-  trex_collided = loadAnimation("trex_collided.png");
+  trexRunning = loadAnimation("trex1.png", "trex3.png", "trex4.png");
+  trexCollided = loadAnimation("trex_collided.png");
 
   groundImage = loadImage("ground2.png");
 
@@ -36,8 +36,8 @@ function setup() {
 
   trex = createSprite(width / 4, height / 4, 20, 50);
 
-  trex.addAnimation("running", trex_running);
-  trex.addAnimation("collided", trex_collided);
+  trex.addAnimation("running", trexRunning);
+  trex.addAnimation("collided", trexCollided);
   trex.scale = 0.5;
   trex.setCollider("circle");
 
@@ -109,7 +109,7 @@ function draw() {
     cloudsGroup.setVelocityXEach(0);
 
     //change the trex animation
-    trex.changeAnimation("collided", trex_collided);
+    trex.changeAnimation("collided", trexCollided);
 
     //set lifetime of the game objects so that they are never destroyed
     obstaclesGroup.setLifetimeEach(-1);
@@ -142,12 +142,11 @@ function spawnClouds() {
     //add each cloud to the group
     cloudsGroup.add(cloud);
   }
-
 }
 
 function spawnObstacles() {
   if (frameCount % 60 === 0) {
-    var obstacle = createSprite((width / 4) + 150, (height / 4) + 150, 10, 40);
+    var obstacle = createSprite((width / 4) + 150, (height / 2), 10, 40);
     obstacle.velocityX = -(6 + 3 * score / 100);
 
     //generate random obstacles
@@ -185,6 +184,6 @@ function reset() {
   obstaclesGroup.destroyEach();
   cloudsGroup.destroyEach();
 
-  trex.changeAnimation("running", trex_running);
+  trex.changeAnimation("running", trexRunning);
   score = 0;
 }
