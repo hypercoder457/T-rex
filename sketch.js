@@ -4,6 +4,7 @@ var gameState = PLAY;
 
 var trex, trexRunning, trexCollided;
 var ground, invisibleGround, groundImage;
+var backgroundImage;
 
 var cloudsGroup, cloudImage;
 var obstaclesGroup, obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6;
@@ -15,6 +16,7 @@ var gameOver, restart;
 function preload() {
   trexRunning = loadAnimation("trex1.png", "trex3.png", "trex4.png");
   trexCollided = loadAnimation("trex_collided.png");
+  backgroundImage = loadImage("trex_sunlight.png");
 
   groundImage = loadImage("ground2.png");
 
@@ -42,7 +44,6 @@ function setup() {
   trex.setCollider("circle");
 
   ground = createSprite(width / 2, height / 2, width, 20);
-  console.log(ground.y, ground.x);
   ground.addImage("ground", groundImage);
   ground.x = width / 2;
   ground.velocityX = -(6 + 3 * score / 100);
@@ -70,7 +71,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(backgroundImage);
   text("Score: " + score, 500, 50);
 
   if (gameState === PLAY) {
@@ -87,7 +88,7 @@ function draw() {
       ground.x = width / 2;
     }
 
-    if(invisibleGround.x < 0) {
+    if (invisibleGround.x < 0) {
       invisibleGround.x = width / 2;
     }
 
