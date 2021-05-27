@@ -74,6 +74,11 @@ function draw() {
   background(backgroundImage);
   text("Score: " + score, 500, 50);
 
+  if(height >= 1000) {
+    textSize(35);
+    text("Score: " + score, 500, 50);
+  }
+
   if (gameState === PLAY) {
     score += Math.round(getFrameRate() / 60);
     ground.velocityX = -(6 + 3 * score / 100);
