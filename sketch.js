@@ -74,7 +74,7 @@ function draw() {
   background(backgroundImage);
   text("Score: " + score, 500, 50);
 
-  if(height >= 1000) {
+  if (height >= 1000) {
     textSize(35);
     text("Score: " + score, 500, 50);
   }
