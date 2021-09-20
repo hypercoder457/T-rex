@@ -14,23 +14,23 @@ var score = 0;
 var gameOver, restart;
 
 function preload() {
-  trexRunning = loadAnimation("trex1.png", "trex3.png", "trex4.png");
-  trexCollided = loadAnimation("trex_collided.png");
-  backgroundImage = loadImage("trex_sunlight.png");
+  trexRunning = loadAnimation("images/trex1.png", "images/trex3.png", "images/trex4.png");
+  trexCollided = loadAnimation("images/trex_collided.png");
+  backgroundImage = loadImage("images/trex_sunlight.png");
 
-  groundImage = loadImage("ground2.png");
+  groundImage = loadImage("images/ground2.png");
 
-  cloudImage = loadImage("cloud.png");
+  cloudImage = loadImage("images/cloud.png");
 
-  obstacle1 = loadImage("obstacle1.png");
-  obstacle2 = loadImage("obstacle2.png");
-  obstacle3 = loadImage("obstacle3.png");
-  obstacle4 = loadImage("obstacle4.png");
-  obstacle5 = loadImage("obstacle5.png");
-  obstacle6 = loadImage("obstacle6.png");
+  obstacle1 = loadImage("images/obstacle1.png");
+  obstacle2 = loadImage("images/obstacle2.png");
+  obstacle3 = loadImage("images/obstacle3.png");
+  obstacle4 = loadImage("images/obstacle4.png");
+  obstacle5 = loadImage("images/obstacle5.png");
+  obstacle6 = loadImage("images/obstacle6.png");
 
-  gameOverImg = loadImage("gameOver.png");
-  restartImg = loadImage("restart.png");
+  gameOverImg = loadImage("images/gameOver.png");
+  restartImg = loadImage("images/restart.png");
 }
 
 function setup() {
